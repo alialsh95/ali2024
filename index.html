@@ -80,11 +80,45 @@
         }
 
         .gallery-item {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.12);
+        }
+
+        /* تأثيرات بصرية راقية وحديثة Micro-interactions والتحسينات الحركية */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Background Crossfade Styles */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        /* كرت البطاقات بتأثيرات عمق وظل راقي */
+        .modern-card {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
     </style>
 </head>
@@ -96,52 +130,58 @@
     <div class="floating-bg-element bg-accent/15 w-36 h-36 blur-xl bottom-40 left-1/4" style="animation-duration: 14s;"></div>
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-md">💛</div>
-                    <span class="text-xl font-black text-gray-900" data-translate="site-title">عالم علي</span>
+                <a href="#" class="flex items-center gap-3 group">
+                    <!-- التعديل الأول: استبدال الدائرة الصفراء والقلب بـ aliw.jpg مع الحفاظ على الشكل والأبعاد المتناسقة -->
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/60 flex items-center justify-center bg-white shadow-md transition transform group-hover:scale-105">
+                        <img src="aliw.jpg" alt="Ali's World" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-xl font-black text-gray-900 tracking-tight" data-translate="site-title">عالم علي</span>
                 </a>
                 <div class="hidden md:flex items-center gap-6 lg:gap-8">
-                    <a href="#hero" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-home">الرئيسية</a>
-                    <a href="#achievements" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-achievements">إنجازات علي</a>
-                    <a href="#news" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-news">آخر الأخبار</a>
-                    <a href="#moments" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-moments">علي وجدته</a>
-                    <a href="#meetings" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-meetings">مواعيد اللقاء</a>
-                    <a href="#games" class="text-gray-600 hover:text-primary font-medium transition">أهم ألعاب علي</a>
-                    <a href="#gallery" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-gallery">آخر الصور</a>
-                    <a href="#message" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-message">رسالة من علي</a>
+                    <a href="#hero" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-home">الرئيسية</a>
+                    <a href="#achievements" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-achievements">إنجازات علي</a>
+                    <a href="#news" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-news">آخر الأخبار</a>
+                    <a href="#moments" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-moments">علي وجدته</a>
+                    <a href="#meetings" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-meetings">مواعيد اللقاء</a>
+                    <a href="#games" class="text-gray-600 hover:text-primary font-medium transition duration-200">أهم ألعاب علي</a>
+                    <a href="#gallery" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-gallery">آخر الصور</a>
+                    <a href="#message" class="text-gray-600 hover:text-primary font-medium transition duration-200" data-translate="nav-message">رسالة من علي</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <button id="langToggle" class="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-bold transition flex items-center gap-1.5">
+                    <button id="langToggle" class="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-sm font-bold transition duration-200 flex items-center gap-1.5 shadow-sm active:scale-95">
                         <i class="fa-solid fa-globe"></i>
                         <span id="langText">English</span>
                     </button>
-                    <button id="menuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+                    <button id="menuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none transition active:scale-95">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
-            <a href="#hero" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-home">الرئيسية</a>
-            <a href="#achievements" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-achievements">إنجازات علي</a>
-            <a href="#news" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-news">آخر الأخبار</a>
-            <a href="#moments" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-moments">علي وجدته</a>
-            <a href="#meetings" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-meetings">مواعيد اللقاء</a>
-            <a href="#games" class="block text-gray-600 hover:text-primary font-medium py-2">أهم ألعاب علي</a>
-            <a href="#gallery" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-gallery">آخر الصور</a>
-            <a href="#message" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-message">رسالة من علي</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#hero" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-home">الرئيسية</a>
+            <a href="#achievements" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-achievements">إنجازات علي</a>
+            <a href="#news" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-news">آخر الأخبار</a>
+            <a href="#moments" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-moments">علي وجدته</a>
+            <a href="#meetings" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-meetings">مواعيد اللقاء</a>
+            <a href="#games" class="block text-gray-600 hover:text-primary font-medium py-2 transition">أهم ألعاب علي</a>
+            <a href="#gallery" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-gallery">آخر الصور</a>
+            <a href="#message" class="block text-gray-600 hover:text-primary font-medium py-2 transition" data-translate="nav-message">رسالة من علي</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (مع نظام التبديل التلقائي الناعم بين hero.jpg و hero2.jpg) -->
     <section id="hero" class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-gradient-to-tr from-amber-100 via-yellow-50 to-sky-100 pt-24 pb-12">
-        <div class="absolute inset-0 z-0">
-            <!-- [ضع رابط أو مسار صورة علي الرئيسية هنا لتغطي الخلفية بالكامل] -->
-            <div id="ALI_MAIN_IMAGE" class="w-full h-full bg-cover bg-center" style="background-image: url('hero.jpg');"></div>
-            <div class="absolute inset-0 bg-black/30 backdrop-blur-[0.5px]"></div>
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- الصورة الأولى للـ Hero -->
+            <div class="hero-slide active" style="background-image: url('hero.jpg');"></div>
+            <!-- الصورة الثانية للـ Hero -->
+            <div class="hero-slide" style="background-image: url('hero2.jpg');"></div>
+            
+            <div class="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]"></div>
         </div>
         
         <!-- أعلى الصورة: فارغ بعد حذف الجملة -->
@@ -152,12 +192,12 @@
         <div class="relative z-10 flex-grow"></div>
 
         <!-- أسفل الصورة: العنوان، النص التوضيحي، والأزرار فوق مساحة الصورة -->
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center pb-4">
-            <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-4 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]" data-translate="hero-title">أهلًا بكم في عالم علي 💛</h1>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center pb-4 reveal-on-scroll reveal-visible">
+            <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-4 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] tracking-tight" data-translate="hero-title">أهلًا بكم في عالم علي 💛</h1>
             <p class="text-lg sm:text-xl text-white font-bold mb-8 max-w-2xl mx-auto drop-shadow-[0_3px_8px_rgba(0,0,0,0.8)]" data-translate="hero-desc">هنا تجدون آخر أخبار علي وإنجازاته وصوره ومواعيد لقائه وأجمل لحظاته مع العائلة.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#achievements" class="bg-primary hover:bg-amber-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5" data-translate="hero-btn-1">اكتشف عالم علي</a>
-                <a href="#news" class="bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5" data-translate="hero-btn-2">آخر الأخبار</a>
+                <a href="#achievements" class="bg-primary hover:bg-amber-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95" data-translate="hero-btn-1">اكتشف عالم علي</a>
+                <a href="#news" class="bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 active:scale-95" data-translate="hero-btn-2">آخر الأخبار</a>
             </div>
         </div>
 
@@ -165,17 +205,17 @@
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="py-20 bg-white/60 relative">
+    <section id="achievements" class="py-20 bg-white/60 relative reveal-on-scroll">
         <div class="absolute top-6 right-12 text-primary/30 text-2xl animate-pulse pointer-events-none">⭐</div>
         <div class="absolute bottom-10 left-12 text-secondary/30 text-2xl animate-bounce pointer-events-none" style="animation-duration: 4s;">🎈</div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="achievements-title">إنجازات علي 🏆</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="achievements-title">إنجازات علي 🏆</h2>
                 <p class="text-gray-600 text-lg" data-translate="achievements-subtitle">كل خطوة صغيرة يصنعها علي هي إنجاز كبير نفخر به جميعاً.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- الإنجاز الأول -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-2 border-primary/40 relative">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-2 border-primary/40 relative">
                     <span class="absolute -top-3 right-6 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-translate="latest-badge">آخر إنجاز ⭐</span>
                     <div class="text-amber-500 text-3xl mb-4">🚀</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">ماعليك زود</h3>
@@ -183,14 +223,14 @@
                     <p class="text-gray-600 text-sm leading-relaxed">تعلم علي أخيراً بعد محاولات ومضاربات وتفلات أنه يقول ماعليك زود بعد مانقوله والنعم</p>
                 </div>
                 <!-- الإنجاز الثاني -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100">
                     <div class="text-secondary text-3xl mb-4">🎈</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">دفاع علي عن أخته</h3>
                     <span class="inline-block text-xs font-semibold text-secondary bg-secondary/10 px-2.5 py-1 rounded-lg mb-3">20/8/2026</span>
                     <p class="text-gray-600 text-sm leading-relaxed">أصبح علي يدافع بكل شراسة عن بطن عزيزه دفاعاً صارماً بعد عدد من الرفسات في الشهور الماضية.</p>
                 </div>
                 <!-- الإنجاز الثالث -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100">
                     <div class="text-accent text-3xl mb-4">🌟</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">مساعدة الجدة</h3>
                     <span class="inline-block text-xs font-semibold text-accent bg-accent/10 px-2.5 py-1 rounded-lg mb-3">18/8/2026</span>
@@ -201,57 +241,57 @@
     </section>
 
     <!-- News Section -->
-    <section id="news" class="py-20 relative bg-gradient-to-b from-transparent via-amber-50/30 to-transparent">
+    <section id="news" class="py-20 relative bg-gradient-to-b from-transparent via-amber-50/30 to-transparent reveal-on-scroll">
         <div class="absolute top-1/3 left-10 text-accent/25 text-xl pointer-events-none">✨</div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="news-title">آخر أخبار علي 📰</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="news-title">آخر أخبار علي 📰</h2>
                 <p class="text-gray-600 text-lg" data-translate="news-subtitle">تابعوا معنا أحدث التفاصيل والقصص القصيرة اليومية.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- الخبر الأول -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-2 border-secondary/40 relative flex flex-col justify-between">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-2 border-secondary/40 relative flex flex-col justify-between">
                     <div>
                         <span class="absolute -top-3 right-6 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-translate="new-badge">جديد</span>
                         <div class="flex items-center gap-2 text-xs text-gray-400 mb-3"><i class="fa-regular fa-calendar"></i><span>22/8/2026</span></div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">علي حلق</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">عمتي رحمه بادرت بنفسها بأخذ علي إلى الحلاق وتم قص شعره حلاقة مدرسية وتفاجأت أمه بالحلاقة وعلى إثر ذلك نتمنى من العائلة الكريمة المبادرة والذهاب إلى بيت عمتي وتقديم التبريكات وكف الحلاقة.</p>
                     </div>
-                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline transition transform hover:translate-x-1"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
                 </div>
                 <!-- الخبر الثاني -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center gap-2 text-xs text-gray-400 mb-3"><i class="fa-regular fa-calendar"></i><span>23/8/2026</span></div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">تواصل علمي</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">أجرى علي نقاشاً علمياً مع معلمته أونلاين بعد توصية من خالته لأمه، ولكن استمر علي في جحدها وعدم إخبار المعلمة باسمه واستمر في الجواب على ما اسمك بقوله: أنا بابا، ويبدو أنها وسيلة علي للدفاع أمام المدرسات.</p>
                     </div>
-                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline transition transform hover:translate-x-1"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
                 </div>
                 <!-- الخبر الثالث -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-md border border-gray-100 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center gap-2 text-xs text-gray-400 mb-3"><i class="fa-regular fa-calendar"></i><span>22/8/2026</span></div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">تنويه</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">ننوه العائلة الكريمة عند زيارتهم له من حجران جدته رحمه، لأنه بدأ ينتف فيه اللي جالسين. جرى التنويه.</p>
                     </div>
-                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="text-secondary font-bold text-sm flex items-center gap-1 hover:underline transition transform hover:translate-x-1"><span data-translate="read-more">قراءة المزيد</span><i class="fa-solid fa-arrow-left"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Ali & Grandma Section -->
-    <section id="moments" class="py-20 bg-amber-50/60 relative">
+    <section id="moments" class="py-20 bg-amber-50/60 relative reveal-on-scroll">
         <div class="absolute bottom-6 right-16 text-amber-300/40 text-3xl pointer-events-none">💛</div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="moments-title">علي وجدته 💛</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="moments-title">علي وجدته 💛</h2>
                 <p class="text-gray-600 text-lg" data-translate="moments-subtitle">أجمل اللحظات وأصدق الضحكات بين علي وجدته الغالية.</p>
             </div>
-            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-amber-100 max-w-3xl mx-auto">
+            <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-amber-100 max-w-3xl mx-auto">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold">👵💛</div>
+                    <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold shadow-inner">👵💛</div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">علي وجدته</h3>
                     </div>
@@ -265,14 +305,14 @@
     </section>
 
     <!-- Meetings Section -->
-    <section id="meetings" class="py-20 relative">
+    <section id="meetings" class="py-20 relative reveal-on-scroll">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="meetings-title">مواعيد لقاء علي 📅</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="meetings-title">مواعيد لقاء علي 📅</h2>
                 <p class="text-gray-600 text-lg" data-translate="meetings-subtitle">ترتيبات ومواعيد اللقاءات العائلية القادمة لزيارة علي.</p>
             </div>
             <div class="grid grid-cols-1 gap-8 max-w-xl mx-auto">
-                <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-l-8 border-primary flex flex-col justify-between">
+                <div class="modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border-l-8 border-primary flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold text-gray-900">المواعيد القادمة</h3>
@@ -287,12 +327,12 @@
     </section>
 
     <!-- Games Section -->
-    <section id="games" class="py-20 bg-white/60 relative">
+    <section id="games" class="py-20 bg-white/60 relative reveal-on-scroll">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">أهم ألعاب علي</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight">أهم ألعاب علي</h2>
             </div>
-            <div class="max-w-xl mx-auto bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-gray-100">
+            <div class="max-w-xl mx-auto modern-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-gray-100">
                 <div class="space-y-4">
                     <div>
                         <span class="block text-sm font-bold text-primary mb-1">نوع اللعبة:</span>
@@ -308,10 +348,10 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white/70 relative">
+    <section id="gallery" class="py-20 bg-white/70 relative reveal-on-scroll">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="gallery-title">آخر صور علي 📸</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="gallery-title">آخر صور علي 📸</h2>
                 <p class="text-gray-600 text-lg" data-translate="gallery-subtitle">أجمل اللقطات والذكريات المصورة لعلي.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -329,10 +369,10 @@
     </section>
 
     <!-- Message Section -->
-    <section id="message" class="py-20 relative">
+    <section id="message" class="py-20 relative reveal-on-scroll">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12"><h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="message-title">رسالة من علي 💌</h2></div>
-            <div class="bg-gradient-to-tr from-amber-100/80 to-orange-100/80 rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-200 relative overflow-hidden">
+            <div class="text-center mb-12"><h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="message-title">رسالة من علي 💌</h2></div>
+            <div class="modern-card bg-gradient-to-tr from-amber-100/80 to-orange-100/80 rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-200 relative overflow-hidden">
                 <div class="relative z-10 flex flex-col sm:flex-row items-center gap-6">
                     <div id="ALI_SMALL_PHOTO" class="w-24 h-24 rounded-full bg-white flex-shrink-0 flex items-center justify-center border-2 border-primary shadow-md text-center p-0 overflow-hidden">
                         <img src="avatar.jpg" alt="Avatar" class="w-full h-full object-cover">
@@ -349,28 +389,28 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white/50 relative">
+    <section id="contact" class="py-20 bg-white/50 relative reveal-on-scroll">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="contact-title">تواصل مع علي 📬</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4 tracking-tight" data-translate="contact-title">تواصل مع علي 📬</h2>
                 <p class="text-gray-600 text-lg" data-translate="contact-subtitle">يسعدنا تلقي رسائلكم وملاحظاتكم مباشرة.</p>
             </div>
             
-            <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100">
+            <div class="modern-card bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100">
                 <form action="https://formspree.io/f/Aliallsh@proton.me" method="POST" class="space-y-6">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2" data-translate="contact-name">الاسم</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition" placeholder="وش اسمك">
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition shadow-sm" placeholder="وش اسمك">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2" data-translate="contact-email">البريد الإلكتروني للزائر</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition" placeholder="name@example.com">
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition shadow-sm" placeholder="name@example.com">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2" data-translate="contact-msg">الرسالة</label>
-                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition" placeholder="اكتب رسالتك هنا..."></textarea>
+                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition shadow-sm" placeholder="اكتب رسالتك هنا..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-primary hover:bg-amber-500 text-white font-bold py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5" data-translate="contact-btn">
+                    <button type="submit" class="w-full bg-primary hover:bg-amber-500 text-white font-bold py-4 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95" data-translate="contact-btn">
                         إرسال الرسالة
                     </button>
                 </form>
@@ -388,7 +428,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#hero" id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl transition transform hover:scale-110 opacity-0 pointer-events-none z-40">
+    <a href="#hero" id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl transition-all duration-300 transform hover:scale-110 active:scale-95 opacity-0 pointer-events-none z-40">
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
@@ -505,6 +545,39 @@
             } else {
                 backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
             }
+        });
+
+        // Hero Background Automatic Crossfade Transition System
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        if (heroSlides.length > 1) {
+            let currentSlideIndex = 0;
+            const slideInterval = 5000; // مدة ظهور كل صورة (5 ثوانٍ) قبل الانتقال الناعم
+
+            setInterval(() => {
+                heroSlides[currentSlideIndex].classList.remove('active');
+                currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+                heroSlides[currentSlideIndex].classList.add('active');
+            }, slideInterval);
+        }
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
