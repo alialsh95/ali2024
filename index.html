@@ -71,6 +71,7 @@
                     <a href="#news" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-news">آخر الأخبار</a>
                     <a href="#moments" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-moments">علي وجدته</a>
                     <a href="#meetings" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-meetings">مواعيد اللقاء</a>
+                    <a href="#games" class="text-gray-600 hover:text-primary font-medium transition">أهم ألعاب علي</a>
                     <a href="#gallery" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-gallery">آخر الصور</a>
                     <a href="#message" class="text-gray-600 hover:text-primary font-medium transition" data-translate="nav-message">رسالة من علي</a>
                 </div>
@@ -91,6 +92,7 @@
             <a href="#news" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-news">آخر الأخبار</a>
             <a href="#moments" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-moments">علي وجدته</a>
             <a href="#meetings" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-meetings">مواعيد اللقاء</a>
+            <a href="#games" class="block text-gray-600 hover:text-primary font-medium py-2">أهم ألعاب علي</a>
             <a href="#gallery" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-gallery">آخر الصور</a>
             <a href="#message" class="block text-gray-600 hover:text-primary font-medium py-2" data-translate="nav-message">رسالة من علي</a>
         </div>
@@ -104,9 +106,8 @@
             <div class="absolute inset-0 bg-black/30 backdrop-blur-[0.5px]"></div>
         </div>
         
-        <!-- أعلى الصورة: الشعار الترحيبي مباشرة تحت شريط التنقل -->
+        <!-- أعلى الصورة: فارغ بعد حذف الجملة -->
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center mt-4">
-            <span class="inline-block bg-white/90 backdrop-blur-md text-amber-900 text-sm font-bold px-5 py-2 rounded-full shadow-md" data-translate="hero-badge">✨ مرحباً بكم في عائلة علي</span>
         </div>
 
         <!-- منتصف الصورة: فارغ تماماً كما طلب -->
@@ -228,34 +229,37 @@
                 <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4" data-translate="meetings-title">مواعيد لقاء علي 📅</h2>
                 <p class="text-gray-600 text-lg" data-translate="meetings-subtitle">ترتيبات ومواعيد اللقاءات العائلية القادمة لزيارة علي.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 gap-8 max-w-xl mx-auto">
                 <div class="bg-white rounded-3xl p-6 shadow-xl border-l-8 border-primary flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-900">[اسم المناسبة أو اللقاء هنا]</h3>
-                            <span class="bg-primary/20 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">قريب جداً</span>
+                            <h3 class="text-xl font-bold text-gray-900">المواعيد القادمة</h3>
                         </div>
                         <div class="space-y-2 text-sm text-gray-600 mb-6">
-                            <div class="flex items-center gap-2"><i class="fa-regular fa-calendar text-primary"></i><span>[التاريخ هنا]</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-primary"></i><span>[الوقت هنا]</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-primary"></i><span>[المكان هنا]</span></div>
+                            <p class="leading-relaxed">ماعندي خطة محددة لكنا<br>الرجاء التواصل مع ماما لأخذ المواعيد</p>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-100"><strong data-translate="notes">ملاحظات:</strong> [ملاحظات إضافية هنا]</p>
                 </div>
-                <div class="bg-white rounded-3xl p-6 shadow-md border-l-8 border-secondary flex flex-col justify-between">
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-white/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-4">أهم ألعاب علي</h2>
+            </div>
+            <div class="max-w-xl mx-auto bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
+                <div class="space-y-4">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-900">[اسم المناسبة أو اللقاء هنا]</h3>
-                            <span class="bg-secondary/20 text-sky-800 text-xs font-bold px-3 py-1 rounded-full" data-translate="upcoming">قادم</span>
-                        </div>
-                        <div class="space-y-2 text-sm text-gray-600 mb-6">
-                            <div class="flex items-center gap-2"><i class="fa-regular fa-calendar text-secondary"></i><span>[التاريخ هنا]</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-secondary"></i><span>[الوقت هنا]</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-secondary"></i><span>[المكان هنا]</span></div>
-                        </div>
+                        <span class="block text-sm font-bold text-primary mb-1">نوع اللعبة:</span>
+                        <p class="text-gray-800 font-semibold text-lg">علي هايد</p>
                     </div>
-                    <p class="text-xs text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-100"><strong data-translate="notes">ملاحظات:</strong> [ملاحظات إضافية هنا]</p>
+                    <div>
+                        <span class="block text-sm font-bold text-primary mb-1">طريقة اللعب:</span>
+                        <p class="text-gray-600 leading-relaxed">تخبوا وانا بدور عليكم وبكررها مليون مره ولا احد يطفش لاني ماراح اطفش</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,30 +295,6 @@
                         <i class="fa-solid fa-image text-3xl text-gray-400 mb-2"></i>
                         <span class="text-gray-500 font-bold text-sm">[صورة علي 3 هنا]</span>
                         <span class="text-xs text-gray-400 mt-1">ali3.jpg</span>
-                    </div>
-                </div>
-                <div id="ALI_PHOTO_4" class="gallery-item aspect-square bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-4 overflow-hidden">
-                    <img src="ali4.jpg" alt="Ali 4" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden');">
-                    <div class="flex flex-col items-center justify-center">
-                        <i class="fa-solid fa-image text-3xl text-gray-400 mb-2"></i>
-                        <span class="text-gray-500 font-bold text-sm">[صورة علي 4 هنا]</span>
-                        <span class="text-xs text-gray-400 mt-1">ali4.jpg</span>
-                    </div>
-                </div>
-                <div id="ALI_PHOTO_5" class="gallery-item aspect-square bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-4 overflow-hidden">
-                    <img src="ali5.jpg" alt="Ali 5" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden');">
-                    <div class="flex flex-col items-center justify-center">
-                        <i class="fa-solid fa-image text-3xl text-gray-400 mb-2"></i>
-                        <span class="text-gray-500 font-bold text-sm">[صورة علي 5 هنا]</span>
-                        <span class="text-xs text-gray-400 mt-1">ali5.jpg</span>
-                    </div>
-                </div>
-                <div id="ALI_PHOTO_6" class="gallery-item aspect-square bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-4 overflow-hidden">
-                    <img src="ali6.jpg" alt="Ali 6" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden'); this.previousElementSibling.classList.remove('hidden');">
-                    <div class="flex flex-col items-center justify-center">
-                        <i class="fa-solid fa-image text-3xl text-gray-400 mb-2"></i>
-                        <span class="text-gray-500 font-bold text-sm">[صورة علي 6 هنا]</span>
-                        <span class="text-xs text-gray-400 mt-1">ali6.jpg</span>
                     </div>
                 </div>
             </div>
@@ -354,10 +334,10 @@
             </div>
             
             <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100">
-                <form action="https://formspree.io/f/ضع_رابط_فورمسبيري_هنا" method="POST" class="space-y-6">
+                <form action="https://formspree.io/f/Aliallsh@proton.me" method="POST" class="space-y-6">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2" data-translate="contact-name">الاسم</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition" placeholder="أدخل اسمك الكريم">
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-primary transition" placeholder="وش اسمك">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2" data-translate="contact-email">البريد الإلكتروني للزائر</label>
@@ -379,7 +359,7 @@
     <footer class="bg-white border-t border-gray-100 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
             <div class="flex items-center gap-2 font-bold text-gray-900"><span>عالم علي 💛</span></div>
-            <p class="text-sm text-gray-500" data-translate="footer-made">صنع بكل حب للعائلة</p>
+            <p class="text-sm text-gray-500" data-translate="footer-made">صنع بحب من عبدالله</p>
             <p class="text-sm font-semibold text-gray-400">2026</p>
         </div>
     </footer>
@@ -401,7 +381,6 @@
                 "nav-meetings": "مواعيد اللقاء",
                 "nav-gallery": "آخر الصور",
                 "nav-message": "رسالة من علي",
-                "hero-badge": "✨ مرحباً بكم في عائلة علي",
                 "hero-title": "أهلًا بكم في عالم علي 💛",
                 "hero-desc": "هنا تجدون آخر أخبار علي وإنجازاته وصوره ومواعيد لقائه وأجمل لحظاته مع العائلة.",
                 "hero-btn-1": "اكتشف عالم علي",
@@ -417,8 +396,6 @@
                 "moments-subtitle": "أجمل اللحظات وأصدق الضحكات بين علي وجدته الغالية.",
                 "meetings-title": "مواعيد لقاء علي 📅",
                 "meetings-subtitle": "ترتيبات ومواعيد اللقاءات العائلية القادمة لزيارة علي.",
-                "notes": "ملاحظات:",
-                "upcoming": "قادم",
                 "gallery-title": "آخر صور علي 📸",
                 "gallery-subtitle": "أجمل اللقطات والذكريات المصورة لعلي.",
                 "message-title": "رسالة من علي 💌",
@@ -428,7 +405,7 @@
                 "contact-email": "البريد الإلكتروني للزائر",
                 "contact-msg": "الرسالة",
                 "contact-btn": "إرسال الرسالة",
-                "footer-made": "صنع بكل حب للعائلة"
+                "footer-made": "صنع بحب من عبدالله"
             },
             en: {
                 "site-title": "Ali's World",
@@ -439,7 +416,6 @@
                 "nav-meetings": "Meetings",
                 "nav-gallery": "Gallery",
                 "nav-message": "Message from Ali",
-                "hero-badge": "✨ Welcome to Ali's Family",
                 "hero-title": "Welcome to Ali's World 💛",
                 "hero-desc": "Here you will find Ali's latest news, achievements, photos, meeting schedules, and sweet family moments.",
                 "hero-btn-1": "Explore Ali's World",
@@ -455,8 +431,6 @@
                 "moments-subtitle": "The sweetest moments and genuine laughs between Ali and his beloved grandma.",
                 "meetings-title": "Ali's Meetings 📅",
                 "meetings-subtitle": "Upcoming family visit schedules and arrangements.",
-                "notes": "Notes:",
-                "upcoming": "Upcoming",
                 "gallery-title": "Ali's Gallery 📸",
                 "gallery-subtitle": "The prettiest captured moments and memories of Ali.",
                 "message-title": "A Message from Ali 💌",
@@ -466,7 +440,7 @@
                 "contact-email": "Visitor's Email",
                 "contact-msg": "Message",
                 "contact-btn": "Send Message",
-                "footer-made": "Made with love for the family"
+                "footer-made": "Made with love by Abdullah"
             }
         };
 
