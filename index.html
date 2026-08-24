@@ -96,23 +96,33 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Modified for Fullscreen Immersive Display without card box) -->
-    <section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-tr from-amber-100 via-yellow-50 to-sky-100">
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-gradient-to-tr from-amber-100 via-yellow-50 to-sky-100 pt-24 pb-12">
         <div class="absolute inset-0 z-0">
             <!-- [ضع رابط أو مسار صورة علي الرئيسية هنا لتغطي الخلفية بالكامل] -->
-            <div id="ALI_MAIN_IMAGE" class="w-full h-full bg-cover bg-center opacity-95" style="background-image: url('hero.jpg');"></div>
-            <div class="absolute inset-0 bg-black/15 backdrop-blur-[1px]"></div>
+            <div id="ALI_MAIN_IMAGE" class="w-full h-full bg-cover bg-center" style="background-image: url('hero.jpg');"></div>
+            <div class="absolute inset-0 bg-black/30 backdrop-blur-[0.5px]"></div>
         </div>
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center py-32">
-            <span class="inline-block bg-white/80 backdrop-blur-md text-amber-800 text-sm font-bold px-5 py-2 rounded-full mb-6 shadow-sm" data-translate="hero-badge">✨ مرحباً بكم في عائلة علي</span>
-            <h1 class="text-4xl sm:text-6xl font-black text-gray-900 leading-tight mb-6 drop-shadow-sm" data-translate="hero-title">أهلًا بكم في عالم علي 💛</h1>
-            <p class="text-lg sm:text-xl text-gray-700 font-medium mb-10 max-w-2xl mx-auto drop-shadow-sm" data-translate="hero-desc">هنا تجدون آخر أخبار علي وإنجازاته وصوره ومواعيد لقائه وأجمل لحظاته مع العائلة.</p>
+        
+        <!-- أعلى الصورة: الشعار الترحيبي مباشرة تحت شريط التنقل -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center mt-4">
+            <span class="inline-block bg-white/90 backdrop-blur-md text-amber-900 text-sm font-bold px-5 py-2 rounded-full shadow-md" data-translate="hero-badge">✨ مرحباً بكم في عائلة علي</span>
+        </div>
+
+        <!-- منتصف الصورة: فارغ تماماً كما طلب -->
+        <div class="relative z-10 flex-grow"></div>
+
+        <!-- أسفل الصورة: العنوان، النص التوضيحي، والأزرار فوق مساحة الصورة -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center pb-4">
+            <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-4 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]" data-translate="hero-title">أهلًا بكم في عالم علي 💛</h1>
+            <p class="text-lg sm:text-xl text-white font-bold mb-8 max-w-2xl mx-auto drop-shadow-[0_3px_8px_rgba(0,0,0,0.8)]" data-translate="hero-desc">هنا تجدون آخر أخبار علي وإنجازاته وصوره ومواعيد لقائه وأجمل لحظاته مع العائلة.</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#achievements" class="bg-primary hover:bg-amber-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5" data-translate="hero-btn-1">اكتشف عالم علي</a>
-                <a href="#news" class="bg-white/95 hover:bg-white text-gray-800 font-bold px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5" data-translate="hero-btn-2">آخر الأخبار</a>
+                <a href="#news" class="bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5" data-translate="hero-btn-2">آخر الأخبار</a>
             </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-softBg to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-softBg to-transparent pointer-events-none"></div>
     </section>
 
     <!-- Achievements Section -->
